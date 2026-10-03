@@ -2,6 +2,39 @@ import React, { StrictMode } from "react";
 import ReactDOM, { createRoot } from "react-dom/client";
 import "./styles.css";
 
+const skills = [
+  {
+    skill: "HTML+CSS",
+    level: "advanced",
+    color: "#2662EA",
+  },
+  {
+    skill: "JavaScript",
+    level: "advanced",
+    color: "#EFD81D",
+  },
+  {
+    skill: "Web Design",
+    level: "advanced",
+    color: "#C3DCAF",
+  },
+  {
+    skill: "Git and GitHub",
+    level: "intermediate",
+    color: "#E84F33",
+  },
+  {
+    skill: "React",
+    level: "advanced",
+    color: "#60DAFB",
+  },
+  {
+    skill: "Svelte",
+    level: "beginner",
+    color: "#FF3B00",
+  },
+];
+
 function App() {
   return (
     <div className="card">
@@ -40,25 +73,47 @@ function Intro() {
 function SkillList() {
   return (
     <div className="skill-list">
-      <Skill skill="HTML+CSS" emoji="🙌" color="Violet" />
+      {skills.map((ability) => (
+        <Skill
+          skill={ability.skill}
+          level={ability.level}
+          color={ability.color}
+          key={ability.skill}
+        />
+      ))}
+      {/* <Skill skill="HTML+CSS" emoji="🙌" color="Violet" />
       <Skill skill="JavaScript" emoji="💪🏼" color="LightGreen" />
-      <Skill skill="Git & Github" emoji="🙌" color="LightBlue" />
+      <Skill skill="Git & Github" emoji="🙌" color="LightBlue" /> */}
     </div>
   );
 }
 
-function Skill(props) {
+function Skill({ skill, level, color }) {
+  console.log(skill, level, color);
+
   return (
     <div
       className="skill"
       style={{
-        backgroundColor: props.color,
+        backgroundColor: color,
       }}
     >
-      <span>{props.skill}</span>
-      <span>{props.emoji}</span>
+      <span>{skill}</span>
+      <Emoji level={level} />
+      {/* <span>{emoji}</span> */}
     </div>
   );
+}
+
+function Emoji({ level }) {
+  console.log(level);
+  if (level === "advanced") {
+    return <span>💪🏼</span>;
+  } else if (level === "intermediate") {
+    return <span>👌🏼</span>;
+  } else {
+    return <span>🐥</span>;
+  }
 }
 
 const root = createRoot(document.getElementById("root"));
