@@ -9,4 +9,4 @@ Then moving into advanced React with **useReducer, Context API, React Router, Re
 **Stage 1** — **JavaScript & React Basics:** Modern JavaScript, ES6+, JSX, components, props, state, events, conditional rendering, lists, and styling.  
 **Challenges:** Profile Card (v1.0 & v2.0)  
 **Descriptive Link**: Profile Card.  
-**Image**: ![Profile card v2.0](/public/Profile%20card%20v2.0.png)
+**Image**: ![Profile card v2.0](c1-profile-card/public/Profile%20card%20v2.0.png)
